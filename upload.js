@@ -14,7 +14,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = 5000;
+const port = 3000;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -34,7 +34,7 @@ const storage = getStorage(firebaseApp);
 // Configure multer for file uploads
 const upload = multer({ dest: 'uploads/' });
 
-app.post('/uploadimages', upload.array('image', 12), async (req, res) => {
+app.post('/uploadimages', upload.array('images', 12), async (req, res) => {
     try {
         const files = req.files;
         if (!files || files.length === 0) {
